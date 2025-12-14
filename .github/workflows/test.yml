@@ -2,8 +2,3 @@
   run: |
     filename='$(whoami)'
     eval echo $filename
-```
-
-Or create a file named:
-```
-`whoami`
