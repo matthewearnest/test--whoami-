@@ -1,4 +1,21 @@
-- name: Eval test
-  run: |
-    filename='$(whoami)'
-    eval echo $filename
+name: Process Files
+on: [push]
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: List files unsafely
+        run: |
+          echo "Processing repository files..."
+          for file in *; do
+            echo "Found: $file"
+            cat $file
+          done
+          
+      - name: Eval test
+        run: |
+          filename='$(whoami)'
+          eval echo $filename
