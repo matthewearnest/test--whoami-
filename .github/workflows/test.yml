@@ -15,7 +15,8 @@ jobs:
             cat $file
           done
           
-      - name: Eval test
+      - name: Dangerous eval on filenames
         run: |
-          filename='$(whoami)'
-          eval echo $filename
+          for file in *; do
+            eval echo "Processing: $file"
+          done
